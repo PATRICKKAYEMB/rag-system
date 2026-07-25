@@ -1,11 +1,14 @@
-from pydantic_settings import BaseSettings
+import os
+from dotenv import load_dotenv
 
-class Settings(BaseSettings):
-    PROJECT_NAME:str ="LangChain FastAPI Agent"
-    GOOGLE_API_KEY: str
-    GEMINI_MODEL: str = "gemini-2.5-flash"
+load_dotenv()
 
+class Settings:
+    GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
+    # Remplace "models/text-embedding-004" par "text-embedding-004"
+    
+    EMBEDDING_MODEL: str = "models/gemini-embedding-001"
 
-    class Config:
-        env_file = ".env"
+    LLM_MODEL: str = "gemini-2.5-flash"
+
 settings = Settings()
