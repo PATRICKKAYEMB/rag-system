@@ -1,0 +1,17 @@
+# Environnements virtuels
+venv/
+.venv/
+env/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Variables d'environnement / Secrets
+.env
+
+# Modèles lourds ou datasets locaux
+*.weights
+*.h5
+*.onnx
+data/raw/
