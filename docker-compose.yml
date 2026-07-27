@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  rag-backend:
+    build: .
+    container_name: rag_fastapi_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+    volumes:
+      
+      - ./chroma_db:/app/chroma_db
+    extra_hosts:
+      
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
