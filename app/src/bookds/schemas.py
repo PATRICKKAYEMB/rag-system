@@ -1,10 +1,10 @@
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import datetime,date 
 import uuid
 class Book(BaseModel):
     id:uuid.UUID
     title:str
-    pushisher:str
+    pushisher:date
     page_count:int
     panguage:str
     create_at:datetime
